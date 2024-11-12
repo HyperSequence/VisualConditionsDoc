@@ -1,6 +1,6 @@
 # Visual Conditions
 
-Visual Conditions is a functional plug-in that supports configuring complex conditions in the UE5 engine. It provides an excellent editor extension for configuring condition combinations and condition parameters, and has a built-in dedicated conditional expression compiler to provide optimal runtime performance. It supports displaying calculation results and visualizing conditional calculation results when running in the editor.
+Visual Conditions is a functional plugin that supports configuring complex conditions in the UE5 engine. It provides an excellent editor extension for configuring condition combinations and condition parameters, and has a built-in dedicated conditional expression compiler to provide optimal runtime performance. It supports displaying calculation results and visualizing conditional calculation results when running in the editor.
 
 English | [中文](./README_ZH-CN.md)
 
