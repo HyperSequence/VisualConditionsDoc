@@ -1,19 +1,18 @@
 # Visual Conditions
 
-Visual Conditions is a functional plug-in that supports configuring complex conditions in the UE5 engine. It provides an excellent editor extension for configuring condition combinations and condition parameters, and has a built-in dedicated conditional expression compiler to provide optimal runtime performance. It supports displaying calculation results and visualizing conditional calculation results when running in the editor.
+Visual Conditions是一个支持在UE5引擎中配置复杂条件的功能插件，它提供了优异的编辑器扩展用于配置条件组合和条件参数，内置了专用的条件表达式编译器，用于提供最佳运行时性能，编辑器下运行支持展示计算结果，可视化条件计算结果。
 
-English | [中文](./README_ZH-CN.md)
+[English](./README.md) | 中文
 
-[Requirements](#Requirements)
+[安装要求](#安装要求)
 
-[Features](#Features)
+[特性](#特性)
 
-[Usage](#Usage)
+[基础使用](#基础使用)
 
-[Extended condition type](#Extendedconditiontype)
+[扩展条件类型](#扩展条件类型)
 
-[Video](#Video)
-
+[视频](#视频)
 
 ![Img](./FILES/ConditionsDetails.png)
 
@@ -23,23 +22,23 @@ English | [中文](./README_ZH-CN.md)
 
 ![Img](./FILES/ConditionsDebug1.png)
 
-## Requirements
+# 安装要求
 
-- **Engine**：UE5.4 or higher
+- **引擎**：UE5.4或更高版本
 
-## Features
+# 特性
 
-- Excellent editor extension support, you can configure various combinations of AND or NOT conditions to achieve configuration of any complex conditions
-- Built-in dedicated compiler, support short-circuit evaluation, compile-time constant calculation and other optimizations, provide the best running performance
-- Running under the editor supports displaying the calculation results and calculation order of conditions, which is convenient for observing the calculation process of conditions
-- Support C++ and blueprint use
-- Support C++ and blueprint unlimited expansion of custom condition types
+- 优异的编辑器扩展支持，可以配置各种与或非条件的组合嵌套，实现任意复杂条件的配置
+- 内置专用编译器，支持短路求值，编译期常量计算等优化，提供最佳运行性能
+- 编辑器下运行支持展示条件的计算结果，计算顺序等，便于观察条件的计算过程
+- 支持C++和蓝图使用
+- 支持C++和蓝图无限扩展自定义条件类型
 
-## Usage
+# 基础使用
 
-### C++
+## C++
 
-1. Declare a condition variable, specify BaseStruct and BaseClass for selecting configurable condition types in the editor
+1. 声明一个条件变量，指定BaseStruct和BaseClass用于编辑器下选择可配置的条件类型
 
 ```cpp
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Test Condition",
@@ -47,7 +46,7 @@ English | [中文](./README_ZH-CN.md)
 	FVisualConditions Conditions;
 ```
 
-2. To perform conditional calculations, you need to construct an execution context first and pass it to the conditional variable for result calculation. Here, the built-in UObject execution context is used. You can customize the execution context as needed.
+2. 执行条件计算, 需要先构造一个执行上下文，传递给条件变量进行结果计算，这里使用了内置的UObject执行上下文，可以根据需要自定义执行上下文
 
 ```cpp
     // Build Context
@@ -56,25 +55,25 @@ English | [中文](./README_ZH-CN.md)
 	bool bConditionResult = Conditions.TestConditions(Context);
 ```
 
-### Blueprint
+## 蓝图
  
-1. Declare a condition variable
+1. 声明一个条件变量
 
     ![Img](./FILES/ConditionsBlueprintVariable.png)
 
-2. Specifying BaseStruct and BaseClass
+2. 指定BaseStruct和BaseClass
 
     ![Img](./FILES/ConditionsBlueprintPick.png)
 
-3. Performing conditional calculations
+3. 执行条件计算
 
     ![Img](./FILES/ConditionsBlueprintTestConditions.png)
 
-## Extended condition type
+# 扩展条件类型
 
-### C++
+## C++
 
-Inherit FVisualConditionBase, override and implement the TestCondition function.
+继承FVisualConditionBase，重载实现TestCondition函数
 
 ```cpp
 USTRUCT(DisplayName = "Integer Compare")
@@ -118,13 +117,13 @@ public:
 	}
 };
 ```
-### Bluprint
+## 蓝图
  
-Inherit UVisualConditionBlueprintBase, override and implement the TestCondition function.
+继承蓝图基类UVisualConditionBlueprintBase, 重载实现TestCondition函数
 
    ![Img](./FILES/BlueprintConditionClass.png)
 
-## Video
+# 视频
 
 [YouTube](https://youtu.be/TkRC0jF7YJY)
 
